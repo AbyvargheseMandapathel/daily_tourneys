@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+        <link rel="icon" href="{% static 'logo.png' %}" type="image/gif">
+  <!--stylesheet-->
+  <link rel="stylesheet" href="{% static 'style.min.css' %}">
+  <link rel="stylesheet" media="screen and (max-width: 1050px)" href="{% static 'ministyle.min.css' %}">
+  <!--End stylesheet-->
+<!--Slider-->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!--End Slider-->
+
+   <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+  <link href="'https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap" rel="stylesheet"> 
+  <!--End Fonts-->
+
+  <!-- FONTAWESOME -->
+  <script src="https://kit.fontawesome.com/114dee6860.js" crossorigin="anonymous"></script>
+  <!-- END FONTAWESOME -->
+
+  <!--Jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- visitors count -->
+  <script>
+  function cb(response) {
+      document.getElementById('count').innerText = response.value;
+  }
+  </script>
+  <script async       src="https://api.countapi.xyz/hit/eSportsDaily.hacknon1000.repl.co/visits?callback=cb">
+  </script>
+  <!-- END visitors count --> 
+      <title>daily {% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    {% include 'partials/_navbar.html' %}
+    {% block content %}
+    
+    {%  endblock %}
+    
+  {% include 'partials/visitor.html' %}
+    {% include 'partials/footbar.html' %}
+
+    <!-- SCRIPT -->
+  <script src="{%  static 'script.js' %}"></script>
+  <!--END SCRIPT-->
+
+  <!--IMAGE SLIDER SCRIPT-->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script>
+    $('.main-carousel').flickity({
+      // options
+      cellAlign: 'left',
+      wrapAround: true,
+      freeScroll: true
+    });
+  </script>
+  <!--END IMAGE SLIDER SCRIPT-->
+  </body>
+</html>
